@@ -1,0 +1,44 @@
+$max-width: 1920; 
+
+$mobile-max-width: 375;
+
+@function get-vw($target) {
+    $vw-context: ($max-width * .01) * 1px;
+    @return ($target/$vw-context) * 1vw;
+}
+
+@mixin vw($property, $size) {
+    #{$property}: get-vw($size);
+}
+
+@function get-m-vw($target) {
+    $vw-context: ($mobile-max-width * .01) * 1px;
+    @return ($target/$vw-context) * 1vw;
+}
+  
+@mixin vwm($property, $size) {
+    #{$property}: get-m-vw($size);
+}
+
+$track-color: #FF0000;
+$thumb-color: #555bc8;
+
+$thumb-radius: 8px;
+$thumb-height: 30px;
+$thumb-width: 30px;
+$thumb-shadow-size: 1px;
+$thumb-shadow-blur: 1px;
+$thumb-shadow-color: #111;
+$thumb-border-width: 1px;
+$thumb-border-color: white;
+
+$track-width: 100%;
+$track-height: 16px;
+$track-shadow-size: 2px;
+$track-shadow-blur: 10px;
+$track-shadow-color: #222;
+$track-border-width: 1px;
+$track-border-color: black;
+
+$track-radius: 5px;
+$contrast: 5%;

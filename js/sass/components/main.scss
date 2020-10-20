@@ -1,0 +1,30 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: ClutchSans; 
+    src: url(../fonts/clutchsans.otf);
+}
+
+@font-face {
+    font-family: SFUIDisplay;
+    src: url(../fonts/SFUIDisplay.ttf);
+}
+
+//@font-face {
+//    font-family: GeometriaMedium;
+//    src: url(../fonts/GeometriaMedium.woff);
+//}
+
+.container{
+    width: 100%;
+    
+    .row{
+        @include vw(width,1590px);
+        margin: 0 auto;
+    }
+}
+ 

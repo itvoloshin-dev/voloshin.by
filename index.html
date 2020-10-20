@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="./stylesheet/style.css" />
+        <link
+                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+                rel="stylesheet"
+        />
+        <link
+                href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;700&display=swap"
+                rel="stylesheet"
+        />
+
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    </head>
+
+    <body>
+    <div class="quiz">
+        <div class="quiz-wrapper">
+            <h1 class="quiz-title">Калькулятор стоимости проекта</h1>
+
+            <span class="quiz-text display-block">Пройдите простой тест и получите персональное КП и Реальный  <span class="quiz-text_red">подарок</span> в конце!</span>
+
+            <div class="progress-bar">
+                <div class="progress-bar-item progress-bar-active"><span class="progress-bar-text">1</span></div>
+                <div class="progress-bar-item "><span class="progress-bar-text hide">2</span></div>
+                <div class="progress-bar-item "><span class="progress-bar-text hide">3</span></div>
+                <div class="progress-bar-item "><span class="progress-bar-text hide">4</span></div>
+                <div class="progress-bar-item "><span class="progress-bar-text hide">5</span></div>
+                <div class="progress-bar-item "><span class="progress-bar-text hide">6</span></div>
+                <div class="progress-bar-item "><span class="progress-bar-text hide">7</span></div>
+                <div class="progress-bar-item "><span class="progress-bar-text hide">8</span></div>
+            </div>
+
+            <div class="step-1 step">
+                <div class="question-wrapper">
+                    <span class="question-text display-block">Подскажите, какая у вас цель?</span>
+                </div>
+
+                <div class="answer-cards-wrapper">
+                    <div class="answer-card">
+                        <div class="image-wrapper">
+                            <img class="step1-image1" src="./images/step-one-img-1.png" />
+                        </div>
+                        <span class="answer-card-title display-block">Корпоративный сайт</span>
+                        <span class="answer-card-text display-block">профессиональный, уникальный, солидный</span>
+                        <div class="checkbox"></div>
+
+                        <input type="radio" name="step-1" value="1" class="answer-button st1" />
+                    </div>
+
+                    <div class="answer-card">
+                        <div class="image-wrapper">
+                            <img class="step1-image2" src="./images/step-one-img-2.png" />
+                        </div>
+                        <span class="answer-card-title display-block">интернет-магазин</span>
+                        <span class="answer-card-text display-block">с корзиной, оплатой онлайн, ...</span>
+                        <div class="checkbox"></div>
+
+                        <input type="radio" name="step-1" value="2" class="answer-button st1" />
+                    </div>
+
+                    <div class="answer-card">
+                        <div class="image-wrapper">
+                            <img class="step1-image3" src="./images/step-one-img-3.png" />
+                        </div>
+                        <span class="answer-card-title display-block">лендинг</span>
+                        <span class="answer-card-text display-block">продающий сайт</span>
+                        <div class="checkbox"></div>
+
+                        <input type="radio" name="step-1" value="3" class="answer-button st1" />
+                    </div>
+
+                    <div class="answer-card">
+                        <div class="image-wrapper">
+                            <img class="step1-image4" src="./images/step-one-img-4.png" />
+                        </div>
+                        <span class="answer-card-title display-block">Сайт Каталог</span>
+                        <span class="answer-card-text display-block">профессиональный, уникальный, солидный</span>
+                        <div class="checkbox"></div>
+
+                        <input type="radio" name="step-1" value="4" class="answer-button st1" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-2 hide">
+                <div class="question-wrapper">
+                    <span class="question-text display-block">Чем вы занимаетесь?</span>
+                </div>
+                <div class="items-wrapper">
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="1" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="2" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="3" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="4" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="5" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="6" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="7" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="8" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="9" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+
+                    <label class="step2-item">
+                        <input type="radio" name="step-2" value="10" class="answer-button st2">
+                        Услуги для физ.лиц
+                    </label>
+                </div>
+            </div>
+
+            <div class="step-3 hide">
+                <div class="question-wrapper">
+                    <span class="question-text display-block">У вас сейчас есть сайт?</span>
+                </div>
+                <div class="step3-wrapper">
+                    <div class="step3-items-wrapper">
+                        <label class="step3-item">
+                            <input type="radio" name="step-2" value="1" class="answer-button st3 yes">
+                            да, есть
+                        </label>
+                        <label class="step3-item">
+                            <input type="radio" name="step-2" value="2" class="answer-button st3 yes">
+                            да, но нужно переделывать
+                        </label>
+                        <label class="step3-item">
+                            <input type="radio" name="step-2" value="3" class="answer-button st3">
+                            еще нет
+                        </label>
+                    </div>
+                    <div class="url-input-wrapper hide">
+                        <span>Укажите ссылку на ваш сайт</span>
+                        <input type="text" name="step-2" value="4" class="url-input st3" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-4 hide">
+                <div class="question-wrapper">
+                    <span class="question-text display-block">Когда вам нужен новый сайт?</span>
+                </div>
+                <div class="step3-items-wrapper">
+                    <label class="step3-item">
+                        <input type="radio" name="step-2" value="1" class="answer-button st4">
+                        Срочно 1-2 недели
+                    </label>
+                    <label class="step3-item">
+                        <input type="radio" name="step-2" value="2" class="answer-button st4">
+                        Есть 1 месяц
+                    </label>
+                    <label class="step3-item">
+                        <input type="radio" name="step-2" value="3" class="answer-button st4">
+                        До трех месяцев
+                    </label>
+                    <label class="step3-item">
+                        <input type="radio" name="step-2" value="4" class="answer-button st4">
+                        Время есть, главное результат
+                    </label>
+                </div>
+            </div>
+
+            <div class="step-5 hide">
+                <div class="question-wrapper">
+                    <span class="question-text display-block">Когда вам нужен новый сайт?</span>
+                </div>
+                <div class="step3-items-wrapper">
+                    <label class="step3-item step5-range">
+                        <input type="range" id="volume" name="volume" class="range-input" min="0" max="10000">
+                        <output class="bubble"></output>
+                        <div class="range-background"></div>
+                    </label>
+                    <label class="step3-item">
+                        <input type="radio" name="step-2" value="10" class="answer-button st5">
+                        с сайта заявки не нужны
+                    </label>
+                </div>
+
+                <div class="btn-wrapper">
+                    <button class="next-step-btn">Продолжить</button>
+                </div>
+            </div>
+
+            <div class="step-6 hide">
+                <div class="question-wrapper">
+                    <span class="question-text display-block">Когда вам нужен новый сайт?</span>
+                </div>
+                <div class="step3-items-wrapper">
+                    <label class="step3-item">
+                        <input type="radio" name="step-2" value="10" class="answer-button st6">
+                        Услуги для физ.лиц
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="./main2.js"></script>
+    </body>
+</html>
+

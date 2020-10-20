@@ -1,0 +1,331 @@
+.step {
+}
+
+.quiz {
+  width: 99vw;
+
+  font-family: ClutchSans;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include vw(font-size, 26px);
+}
+
+.quiz-wrapper {
+  @include vw(width, 1674px);
+
+  @include vw(padding-top, 70px);
+  @include vw(padding-bottom, 65px);
+  @include vw(padding-left, 142px);
+  @include vw(padding-right, 258px);
+}
+
+.quiz-title {
+  @include vw(font-size, 90px);
+  @include vw(margin-bottom, 23px);
+}
+
+.quiz-text {
+  @include vw(font-size, 48px);
+  @include vw(margin-bottom, 60px);
+
+  &_red {
+    @include vw(font-size, 60px);
+    color: #ff0000;
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  @include vw(height, 24px);
+  background-color: #D9D9D9;
+  display: flex;
+  overflow: hidden;
+}
+
+.progress-bar-item {
+  @include vw(width, 179px);
+  width: 12.5%;
+  height: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:first-child {
+    &:after {
+      content: "";
+      height: 0;
+      width: 0;
+    }
+  }
+
+  &:after {
+    content: "";
+    @include vw(height, 70px);
+    @include vw(width, 100px);
+    transform: rotate(61deg);
+    background-color: #D9D9D9;
+    border-left: 1px solid #fff;
+
+    position: absolute;
+    @include vw(left, -52px);
+    @include vw(top, 24px);
+  }
+}
+
+.display-block {
+  display: block;
+}
+
+.progress-bar-active {
+  background-color: #ff0000;
+  &:after {
+    background-color: #ff0000;
+  }
+}
+
+.progress-bar-text {
+  color: #fff;
+  @include vw(font-size, 21px);
+  font-family: SFUIDisplay;
+}
+
+.question-wrapper {
+  @include vw(font-size, 72px);
+  @include vw(height, 136px);
+  @include vw(margin-top, 30px);
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 25%, rgba(112,112,112,1) 100%, rgba(112,112,112,1) 100%);
+  display: flex;
+  align-items: center;
+
+  &:before {
+    content: " \2023";
+    color: #FF0000;
+    @include vw(margin-right, 22px);
+  }
+}
+
+.answer-cards-wrapper {
+  display: flex;
+  justify-content: space-between;
+  @include vw(margin-top, 30px);
+}
+
+.answer-card {
+  @include vw(width, 319px);
+  @include vw(height, 388px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+.answer-card-title {
+  @include vw(font-size, 20px);
+}
+
+.answer-card-text {
+  @include vw(font-size, 15px);
+  @include vw(margin-bottom, 30px);
+}
+
+.image-wrapper {
+  @include vw(height, 250px);
+  display: flex;
+  align-items: center;
+}
+
+.step1-image1 {
+  @include vw(height, 170px);
+}
+
+.step1-image2 {
+  @include vw(height, 230px);
+}
+
+.step1-image3 {
+  @include vw(height, 230px);
+}
+
+.step1-image4 {
+  @include vw(height, 180px);
+}
+
+.items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.step2-item {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  @include vw(margin-top, 40px);
+}
+
+.step3-wrapper {
+  display: flex;
+}
+
+.step3-items-wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.step3-item {
+  @include vw(margin-top, 40px);
+}
+
+.url-input-wrapper {
+  @include vw(margin-top, 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.url-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  @include vw(font-size, 26px);
+  @include vw(width, 692px);
+  @include vw(margin-top, 40px);
+}
+
+.hide {
+  display: none;
+}
+//
+//@function shadow($shadow-size,$shadow-blur,$shadow-color) {
+//  @return (box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0px 0px $shadow-size lighten($shadow-color,5%));
+//}
+
+@mixin shadow($shadow-size,$shadow-blur,$shadow-color) {
+  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0px 0px $shadow-size lighten($shadow-color,5%);
+}
+
+@mixin track {
+  width: $track-width;
+  @include vw(height, 16px);
+  cursor: pointer;
+}
+
+@mixin thumb {
+  @include shadow($thumb-shadow-size,$thumb-shadow-blur,$thumb-shadow-color);
+  //border: $thumb-border-width solid $thumb-border-color;
+  //height: $thumb-height;
+  //width: $thumb-width;
+  //border-radius: $thumb-radius;
+  //background-image: url("./images/thumb.png");
+  background-color: #fff;
+  border: 1px solid #707070;
+  background-repeat: no-repeat;
+  background-position: 50% ;
+  background-size: 20%;
+  @include vw(width, 21px);
+  @include vw(height, 55px);
+  cursor: pointer;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: $thumb-height/2 0;
+  @include vw(width, 1149px);
+  overflow: hidden;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track;
+    @include shadow($track-shadow-size,$track-shadow-blur,$track-shadow-color);
+    color: $track-color;
+    background: #ffffff;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb;
+    -webkit-appearance: none;
+    margin-top: ((-$track-border-width * 2 + $track-height) / 2) - ($thumb-height / 2);
+    box-shadow: -2000px 0 0 2000px $track-color;
+  }
+
+  //&:focus::-webkit-slider-runnable-track {
+  //  background: lighten($track-color, $contrast);
+  //}
+
+  &::-moz-range-track {
+    @include track;
+    @include shadow($track-shadow-size,$track-shadow-blur,$track-shadow-color);
+    background: $track-color;
+  }
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &::-ms-track {
+    @include track;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    background: darken($track-color, $contrast);
+    @include shadow($track-shadow-size,$track-shadow-blur,$track-shadow-color);
+  }
+  &::-ms-fill-upper {
+    background: $track-color;
+    @include shadow($track-shadow-size,$track-shadow-blur,$track-shadow-color);
+  }
+  &::-ms-thumb {
+    @include thumb;
+  }
+  &:focus::-ms-fill-lower {
+    background: $track-color;
+  }
+  &:focus::-ms-fill-upper {
+    background: lighten($track-color, $contrast);
+  }
+}
+
+.step5-range {
+  position: relative;
+  width: fit-content;
+}
+
+.bubble {
+  padding: 4px 12px;
+  font-family: SFUIDisplay;
+  @include vw(font-size, 20px);
+  position: absolute;
+  border-radius: 4px;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+}
+
+.range-background {
+  position: absolute;
+  @include vw(top, 15px);
+
+  @include vw(width, 1149px);
+  @include vw(height, 16px);
+
+  box-shadow: 4px 3px 6px 2px rgba(0,0,0,0.11);
+
+  z-index: -1;
+}
+
+.btn-wrapper {
+
+}
+
+.next-step-btn {
+
+}
