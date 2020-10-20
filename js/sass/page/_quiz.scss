@@ -96,17 +96,70 @@
 .question-wrapper {
   @include vw(font-size, 72px);
   @include vw(height, 136px);
-  @include vw(margin-top, 30px);
+  @include vw(margin-top, 24px);
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(255,255,255,1) 25%, rgba(112,112,112,1) 100%, rgba(112,112,112,1) 100%);
   display: flex;
   align-items: center;
+  font-family: ClutchSans;
 
   &:before {
     content: " \2023";
     color: #FF0000;
     @include vw(margin-right, 22px);
   }
+}
+
+.step-1, .step-2, .step-3, .step-4, .step-5, .step-6, .step-7 {
+  font-family: SFUIDisplay;
+  text-transform: uppercase;
+}
+
+.checkbox {
+  @include vw(width, 20px);
+  @include vw(height, 20px);
+  @include vw(margin-right, 40px);
+  border: 2px solid #000000;
+}
+
+.checkbox:hover {
+  background-color: #FF8A8A;
+}
+
+.checked-checkbox {
+  @include vw(width, 20px);
+  @include vw(height, 20px);
+  @include vw(margin-right, 40px);
+  border: 2px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checked-checkbox:hover {
+  background-color: #FF8A8A;
+}
+
+.dot {
+  @include vw(width, 12px);
+  @include vw(height, 12px);
+  background-color: #FF0000;
+}
+
+.checked {
+  padding: 4px;
+
+  background-color: #FF0000;
+}
+
+.red {
+  border-color: #FF0000;
+  margin-right: 0;
+}
+
+.step-counter {
+  text-align: right;
+  @include vw(margin-top, 13px);
 }
 
 .answer-cards-wrapper {
@@ -131,6 +184,8 @@
 .answer-card-text {
   @include vw(font-size, 15px);
   @include vw(margin-bottom, 30px);
+  @include vw(margin-top, 15px);
+  text-transform: none;
 }
 
 .image-wrapper {
@@ -175,6 +230,39 @@
   width: 50%;
   display: flex;
   flex-direction: column;
+}
+
+.step6-items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.step3-item {
+  display: flex;
+  align-items: center;
+}
+
+.step6-item {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  @include vw(margin-top, 5px);
+}
+
+.step7-items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.step7-item {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  @include vw(margin-top, 40px);
+}
+
+.big-item {
+  width: 100%;
 }
 
 .step3-item {
@@ -228,14 +316,18 @@
   background-size: 20%;
   @include vw(width, 21px);
   @include vw(height, 55px);
+  position: relative;
+  bottom: 7px;
   cursor: pointer;
+  z-index: 2;
+  background-image: url("./images/thumb.png");
 }
 
 input[type=range] {
   -webkit-appearance: none;
   margin: $thumb-height/2 0;
   @include vw(width, 1149px);
-  overflow: hidden;
+  //overflow: hidden;
 
   &:focus {
     outline: none;
@@ -245,14 +337,14 @@ input[type=range] {
     @include track;
     @include shadow($track-shadow-size,$track-shadow-blur,$track-shadow-color);
     color: $track-color;
-    background: #ffffff;
+    background: $track-color;
   }
 
   &::-webkit-slider-thumb {
     @include thumb;
     -webkit-appearance: none;
     margin-top: ((-$track-border-width * 2 + $track-height) / 2) - ($thumb-height / 2);
-    box-shadow: -2000px 0 0 2000px $track-color;
+    //box-shadow: -2000px 0 0 2000px $track-color;
   }
 
   //&:focus::-webkit-slider-runnable-track {
@@ -297,6 +389,22 @@ input[type=range] {
 .step5-range {
   position: relative;
   width: fit-content;
+  font-family: SFUIDisplay;
+  @include vw(font-size, 20px);
+
+  &:before {
+    content: "0";
+    position: absolute;
+    left: 0;
+    top: 75%;
+  }
+
+  &:after {
+    content: "10000";
+    position: absolute;
+    right: 0;
+    top: 75%;
+  }
 }
 
 .bubble {
@@ -306,7 +414,7 @@ input[type=range] {
   position: absolute;
   border-radius: 4px;
   left: 50%;
-  top: 100%;
+  top: 120%;
   transform: translateX(-50%);
 }
 
@@ -318,8 +426,10 @@ input[type=range] {
   @include vw(height, 16px);
 
   box-shadow: 4px 3px 6px 2px rgba(0,0,0,0.11);
-
-  z-index: -1;
+  background-color: #ffffff;
+  right: 0;
+  top: 15px;
+  z-index: 1;
 }
 
 .btn-wrapper {

@@ -1,4 +1,7 @@
 const answerBtnList = document.querySelectorAll(".answer-button");
+const answerCardsList = document.querySelectorAll(".answer-card");
+
+const siteContinueButton = document.querySelectorAll(".step-3-continue");
 
 const progressItem = document.querySelectorAll(".progress-bar-item");
 const progressText = document.querySelectorAll(".progress-bar-text");
@@ -7,11 +10,52 @@ const urlInput = document.querySelectorAll(".url-input-wrapper");
 
 const rangeInput = document.querySelectorAll(".range-input");
 const bubble = document.querySelectorAll(".bubble");
-const bubble = document.querySelector(".next-step-btn");
+const rightSiteRange = document.querySelectorAll(".range-background");
+// const bubble = document.querySelector(".next-step-btn");
 
 let answerArr = {};
 let currentStepState = 1;
 let currentActiveClass = "st1";
+
+for (let j = 0; j < answerCardsList.length; j++) {
+    answerCardsList[j].addEventListener("click", () => {
+        answerArr[`${currentStepState}`] = j + 1;
+
+        const currentStep = document.querySelector(`.step-${currentStepState}`);
+        const nextStep = document.querySelector(`.step-${currentStepState + 1}`);
+
+        currentStep.classList.add('hide');
+        nextStep.classList.remove('hide');
+        currentStep.classList.remove('active');
+        nextStep.classList.add('active');
+
+
+        progressItem[currentStepState].classList.add('progress-bar-active');
+        progressText[currentStepState - 1].classList.add('hide');
+        progressText[currentStepState].classList.remove('hide');
+
+        currentStepState++;
+        currentActiveClass = `st${currentStepState}`
+    })
+}
+
+siteContinueButton[0].addEventListener("click", () => {
+    const currentStep = document.querySelector(`.step-${currentStepState}`);
+    const nextStep = document.querySelector(`.step-${currentStepState + 1}`);
+
+    currentStep.classList.add('hide');
+    nextStep.classList.remove('hide');
+    currentStep.classList.remove('active');
+    nextStep.classList.add('active');
+
+
+    progressItem[currentStepState].classList.add('progress-bar-active');
+    progressText[currentStepState - 1].classList.add('hide');
+    progressText[currentStepState].classList.remove('hide');
+
+    currentStepState++;
+    currentActiveClass = `st${currentStepState}`
+})
 
 for (let j = 0; j < answerBtnList.length; j++) {
     answerBtnList[j].addEventListener('change', () => {
@@ -47,14 +91,24 @@ for (let j = 0; j < answerBtnList.length; j++) {
 for (let j = 0; j < showUrlInputButton.length; j++) {
     showUrlInputButton[j].addEventListener("click", () => {
         answerBtnList[j].classList.add("checked");
+
+        showUrlInputButton[j].parentNode.children[0].classList.add("hide");
+        showUrlInputButton[j].parentNode.children[1].classList.remove("hide");
+
+        showUrlInputButton[j].parentNode.parentNode.children[j === 0 ? 1 : 0].children[0].classList.remove("hide");
+        showUrlInputButton[j].parentNode.parentNode.children[j === 0 ? 1 : 0].children[1].classList.add("hide");
         urlInput[0].classList.remove("hide")
     })
 }
-console.log(rangeInput);
+
+urlInput[0].addEventListener("change", () => {
+    answerArr[`${currentStepState}`] = urlInput[0].children[1].value;
+})
+
+
 rangeInput[0].addEventListener("input", () => {
     setBubble(rangeInput[0], bubble[0]);
 });
-setBubble(rangeInput[0], bubble[0]);
 
 function setBubble(range, bubble) {
     const val = range.value;
@@ -62,7 +116,9 @@ function setBubble(range, bubble) {
     const max = range.max ? range.max : 100;
     const newVal = Number(((val - min) * 100) / (max - min));
     bubble.innerHTML = val;
-    // Sorta magic numbers based on size of the native UI thumb
+    answerArr[`${currentStepState}`] = val;
+    rightSiteRange[0].style = `width: calc(100% - ${newVal}%)`;
+    console.log(answerArr);
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
 
