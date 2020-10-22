@@ -1,7 +1,10 @@
 const answerBtnList = document.querySelectorAll(".answer-button");
+// const warningButton = document.querySelectorAll(".warning-btn");
 const answerCardsList = document.querySelectorAll(".answer-card");
+// const warning = document.querySelectorAll(".warning-text");
 
-const siteContinueButton = document.querySelectorAll(".step-3-continue");
+const siteContinueButton = document.querySelectorAll(".step-continue");
+// const siteContinueButton1 = document.querySelector(".step-continue-1");
 
 const progressItem = document.querySelectorAll(".progress-bar-item");
 const progressText = document.querySelectorAll(".progress-bar-text");
@@ -40,6 +43,24 @@ for (let j = 0; j < answerCardsList.length; j++) {
 }
 
 siteContinueButton[0].addEventListener("click", () => {
+    const currentStep = document.querySelector(`.step-${currentStepState}`);
+    const nextStep = document.querySelector(`.step-${currentStepState + 1}`);
+
+    currentStep.classList.add('hide');
+    nextStep.classList.remove('hide');
+    currentStep.classList.remove('active');
+    nextStep.classList.add('active');
+
+
+    progressItem[currentStepState].classList.add('progress-bar-active');
+    progressText[currentStepState - 1].classList.add('hide');
+    progressText[currentStepState].classList.remove('hide');
+
+    currentStepState++;
+    currentActiveClass = `st${currentStepState}`
+})
+
+siteContinueButton[1].addEventListener("click", () => {
     const currentStep = document.querySelector(`.step-${currentStepState}`);
     const nextStep = document.querySelector(`.step-${currentStepState + 1}`);
 
@@ -121,6 +142,19 @@ function setBubble(range, bubble) {
     console.log(answerArr);
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
+
+
+// siteContinueButton1.addEventListener("click", () => {
+//         if (urlInput[0].children[1].value == false) {
+//
+//             warning.classList.remove("visibility-hidden");
+//             console.log("123", urlInput[0].children[1].value)
+//
+//             setTimeout(() =>{
+//                 warning.classList.add("visibility-hidden");
+//             }, 3000);
+//         }
+//     })
 
 console.log(answerArr)
 

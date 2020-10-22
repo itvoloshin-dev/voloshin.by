@@ -1,4 +1,5 @@
 .step {
+  //height: 100%;
 }
 
 .quiz {
@@ -14,11 +15,14 @@
 
 .quiz-wrapper {
   @include vw(width, 1674px);
+  @include vw(height, 1132px);
 
   @include vw(padding-top, 70px);
   @include vw(padding-bottom, 65px);
   @include vw(padding-left, 142px);
   @include vw(padding-right, 258px);
+
+  position: relative;
 }
 
 .quiz-title {
@@ -97,8 +101,9 @@
   @include vw(font-size, 72px);
   @include vw(height, 136px);
   @include vw(margin-top, 24px);
+  @include vw(margin-bottom, 53px);
   background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,1) 25%, rgba(112,112,112,1) 100%, rgba(112,112,112,1) 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 25%, rgb(112, 112, 112) 100%, rgb(112, 112, 112) 100%);
   display: flex;
   align-items: center;
   font-family: ClutchSans;
@@ -113,6 +118,13 @@
 .step-1, .step-2, .step-3, .step-4, .step-5, .step-6, .step-7 {
   font-family: SFUIDisplay;
   text-transform: uppercase;
+}
+
+.step-1 {
+  background-image: url("./images/backgroundimg1.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
 }
 
 .checkbox {
@@ -179,6 +191,7 @@
 
 .answer-card-title {
   @include vw(font-size, 20px);
+  //@include vw(margin-bottom, 53px);
 }
 
 .answer-card-text {
@@ -235,6 +248,7 @@
 .step6-items-wrapper {
   display: flex;
   flex-wrap: wrap;
+  @include vw(margin-bottom, 17px);
 }
 
 .step3-item {
@@ -283,17 +297,14 @@
   @include vw(width, 692px);
   @include vw(margin-top, 40px);
 }
-
-.hide {
-  display: none;
-}
 //
 //@function shadow($shadow-size,$shadow-blur,$shadow-color) {
 //  @return (box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0px 0px $shadow-size lighten($shadow-color,5%));
 //}
 
 @mixin shadow($shadow-size,$shadow-blur,$shadow-color) {
-  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0px 0px $shadow-size lighten($shadow-color,5%);
+  //box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0px 0px $shadow-size lighten($shadow-color,2%);
+  box-shadow: 10px 10px 44px -2px rgba(0,0,0,0.17);
 }
 
 @mixin track {
@@ -303,7 +314,7 @@
 }
 
 @mixin thumb {
-  @include shadow($thumb-shadow-size,$thumb-shadow-blur,$thumb-shadow-color);
+  //@include shadow($thumb-shadow-size,$thumb-shadow-blur,$thumb-shadow-color);
   //border: $thumb-border-width solid $thumb-border-color;
   //height: $thumb-height;
   //width: $thumb-width;
@@ -321,6 +332,9 @@
   cursor: pointer;
   z-index: 2;
   background-image: url("./images/thumb.png");
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: center;
 }
 
 input[type=range] {
@@ -433,9 +447,85 @@ input[type=range] {
 }
 
 .btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
+  position: absolute;
+  @include vw(bottom, 52px);
+  left: 30%;
+}
+
+.warning-text {
+  @include vw(font-size, 18px);
+  color: #ff0000;
 }
 
 .next-step-btn {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  @include vw(margin-top, 10px);
+
+  border: 3px solid #000;
+  @include vw(width, 256px);
+  @include vw(height, 73px);
+  font-family: SFUIDisplay;
+  text-transform: uppercase;
+  @include vw(font-size, 24px);
+
+  &:before {
+    content: "";
+
+    @include vw(width, 46px);
+    @include vw(height, 2px);
+    background-color: #000;
+
+    position: absolute;
+    left: -10%;
+    top: 50%;
+  }
+
+  &:after {
+    content: "";
+
+    @include vw(width, 46px);
+    @include vw(height, 2px);
+    background-color: #000;
+
+    position: absolute;
+    right: -10%;
+    top: 50%;
+  }
+
+  &:hover {
+    @include vw(font-size, 26px);
+
+    &:before {
+      left: -15%;
+    }
+
+    &:after {
+      right: -15%;
+    }
+  }
+}
+
+
+.hide {
+  display: none;
+}
+
+.visibility-hidden {
+  visibility: hidden;
 }
